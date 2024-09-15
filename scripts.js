@@ -1,6 +1,27 @@
 /* scripts.js */
 
-/* 3D-Logo mit Three.js */
+// Initialisieren von GSAP und ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// GSAP-Animation für den Haupttitel
+gsap.to("#main-title", {
+  duration: 2,
+  y: 0,
+  opacity: 1,
+  ease: "power2.out",
+  delay: 0.5
+});
+
+// GSAP-Animation für das Logo
+gsap.from("#logo", {
+  duration: 2,
+  scale: 0.8,
+  opacity: 0,
+  ease: "back.out(1.7)",
+  delay: 1
+});
+
+// 3D-Logo mit Three.js
 document.addEventListener('DOMContentLoaded', () => {
   // Szenen-Setup
   const scene = new THREE.Scene();
@@ -31,109 +52,95 @@ document.addEventListener('DOMContentLoaded', () => {
     emissive: 0x000000,
     emissiveIntensity: 0.5
   });
-  const logo = new THREE.Mesh(geometry, material);
-  scene.add(logo);
+  const logoMesh = new THREE.Mesh(geometry, material);
+  scene.add(logoMesh);
 
   // Animation
   const animate = function () {
     requestAnimationFrame(animate);
-    logo.rotation.y += 0.005;
-    logo.rotation.x += 0.005;
+    logoMesh.rotation.y += 0.005;
+    logoMesh.rotation.x += 0.005;
     renderer.render(scene, camera);
   };
 
   animate();
 
-  // Interaktive Hover-Effekte
+  // Interaktive Hover-Effekte mit GSAP
   const logoContainer = document.getElementById('logo-container');
 
-  logoContainer.addEventListener('mouseover', () => {
-    gsap.to(logo.scale, { duration: 0.3, x: 1.2, y: 1.2, z: 1.2, ease: "power2.out" });
-    gsap.to(logo.rotation, { duration: 0.3, y: logo.rotation.y + Math.PI, ease: "power2.out" });
+  logoContainer.addEventListener('mouseenter', () => {
+    gsap.to(logoMesh.scale, { duration: 0.3, x: 1.2, y: 1.2, z: 1.2, ease: "power2.out" });
+    gsap.to(logoMesh.rotation, { duration: 0.3, y: logoMesh.rotation.y + Math.PI, ease: "power2.out" });
   });
 
-  logoContainer.addEventListener('mouseout', () => {
-    gsap.to(logo.scale, { duration: 0.3, x: 1, y: 1, z: 1, ease: "power2.out" });
-    gsap.to(logo.rotation, { duration: 0.3, y: logo.rotation.y + Math.PI, ease: "power2.out" });
+  logoContainer.addEventListener('mouseleave', () => {
+    gsap.to(logoMesh.scale, { duration: 0.3, x: 1, y: 1, z: 1, ease: "power2.out" });
+    gsap.to(logoMesh.rotation, { duration: 0.3, y: logoMesh.rotation.y + Math.PI, ease: "power2.out" });
   });
-
-  /* Optional: Laden eines eigenen 3D-Modells mit GLTFLoader
-  const loader = new THREE.GLTFLoader();
-  loader.load(
-    'assets/models/logo.glb', // Pfad zu Ihrem 3D-Modell
-    function (gltf) {
-      const model = gltf.scene;
-      model.scale.set(1, 1, 1);
-      scene.add(model);
-      // Optional: Animationen oder zusätzliche Einstellungen
-    },
-    undefined,
-    function (error) {
-      console.error(error);
-    }
-  );
-  */
 });
 
-/* GSAP-Animation für den Titel */
-gsap.from("#main-title", { duration: 2, y: -50, opacity: 0, ease: "power2.out" });
-
-/* ScrollTrigger registrieren */
-gsap.registerPlugin(ScrollTrigger);
-
-/* Animation der Leistungen beim Scrollen */
-const leistungenSection = document.getElementById('leistungen');
+// Scroll-basierte Animationen für Leistungen
 const leistungen = document.querySelectorAll('.leistung');
 
-gsap.from(leistungen, {
-  scrollTrigger: {
-    trigger: leistungenSection,
-    start: "top 80%"
-  },
-  duration: 1,
-  y: 50,
-  opacity: 0,
-  stagger: 0.2,
-  ease: "power2.out"
+leistungen.forEach(leistung => {
+  gsap.from(leistung, {
+    scrollTrigger: {
+      trigger: leistung,
+      start: "top 80%",
+      toggleActions: "play none none reverse"
+    },
+    duration: 1,
+    y: 50,
+    opacity: 0,
+    ease: "power2.out",
+    stagger: 0.2
+  });
 });
 
-/* Animation der Testimonials beim Scrollen */
-const testimonialsSection = document.getElementById('testimonials');
+// Scroll-basierte Animationen für Testimonials
 const testimonials = document.querySelectorAll('.testimonial');
 
-gsap.from(testimonials, {
-  scrollTrigger: {
-    trigger: testimonialsSection,
-    start: "top 80%"
-  },
-  duration: 1,
-  scale: 0.95,
-  opacity: 0,
-  stagger: 0.2,
-  ease: "power2.out"
+testimonials.forEach(testimonial => {
+  gsap.from(testimonial, {
+    scrollTrigger: {
+      trigger: testimonial,
+      start: "top 80%",
+      toggleActions: "play none none reverse"
+    },
+    duration: 1,
+    scale: 0.95,
+    opacity: 0,
+    ease: "power2.out",
+    stagger: 0.2
+  });
 });
 
-/* Smooth Scroll für interne Links */
+// Smooth Scroll für interne Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
     if(target) {
       window.scrollTo({
-        top: target.offsetTop - 50,
+        top: target.offsetTop - 80,
         behavior: 'smooth'
       });
     }
   });
 });
 
-/* Newsletter-Formular-Verarbeitung */
+// Newsletter-Formular-Verarbeitung
 document.getElementById('newsletter-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const emailInput = this.querySelector('input[type="email"]');
   const email = emailInput.value;
+  
   // Hier können Sie den Code zur Verarbeitung des Newsletters hinzufügen
   // Beispiel: Senden der E-Mail an einen Server oder eine API
+  // Für Demonstrationszwecke wird eine Alert-Nachricht verwendet
+  gsap.to("#newsletter", { duration: 0.5, backgroundColor: "#d4edda" });
+  gsap.fromTo("#newsletter", { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 0.5 });
+  
   alert(`Danke für Ihre Anmeldung, ${email}!`);
   emailInput.value = '';
 });
