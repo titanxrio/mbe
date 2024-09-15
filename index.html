@@ -6,34 +6,35 @@
   <title>MBE Bauconsult GmbH</title>
   <link rel="stylesheet" href="styles.css">
   
-  <!-- Three.js CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  
   <!-- GSAP CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-  
-  <!-- ScrollTrigger Plugin von GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-  
-  <!-- GLTFLoader für 3D-Modelle -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1 id="main-title">KOMPETENTE UNTERSTÜTZUNG IN KOMPLEXEN PROJEKTEN</h1>
-    <div id="logo-container">
-      <img src="logo.png" alt="MBE Bauconsult GmbH Logo" id="logo" />
+    <div class="header-content">
+      <img src="logo.png" alt="MBE Bauconsult GmbH Logo" id="logo">
+      <h1 id="main-title">KOMPETENTE UNTERSTÜTZUNG IN KOMPLEXEN PROJEKTEN</h1>
+      <nav>
+        <ul>
+          <li><a href="#leistungen">Unsere Leistungen</a></li>
+          <li><a href="#projekte">Projekte</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#leistungen">Unsere Leistungen</a></li>
-        <li><a href="#projekte">Projekte</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-    </nav>
+    <div class="animated-lines">
+      <!-- SVG für animierte Linien -->
+      <svg width="100%" height="100%">
+        <line x1="0" y1="0" x2="100%" y2="100%" class="line"></line>
+        <line x1="100%" y1="0" x2="0" y2="100%" class="line"></line>
+      </svg>
+    </div>
   </header>
 
+  <!-- Hauptinhalt -->
   <main>
     <!-- Unsere Leistungen -->
     <section id="leistungen">
@@ -82,6 +83,20 @@
       </div>
     </section>
 
+    <!-- Projekte -->
+    <section id="projekte">
+      <h2>Unsere Projekte</h2>
+      <div class="projekte-grid">
+        <!-- Beispielprojekt -->
+        <div class="projekt">
+          <img src="projekt1.jpg" alt="Projekt 1">
+          <h3>Projektname 1</h3>
+          <p>Kurze Beschreibung des Projekts.</p>
+        </div>
+        <!-- Weitere Projekte hinzufügen -->
+      </div>
+    </section>
+
     <!-- Testimonials -->
     <section id="testimonials">
       <h2>Kundenbewertungen</h2>
@@ -94,7 +109,7 @@
           <p>"Professionelle Beratung und exzellente Umsetzung."</p>
           <h4>Anna Beispiel, Projektleiterin</h4>
         </div>
-        <!-- Weitere Testimonials können hier hinzugefügt werden -->
+        <!-- Weitere Testimonials hinzufügen -->
       </div>
     </section>
 
@@ -106,8 +121,25 @@
         <button type="submit">Anmelden</button>
       </form>
     </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt">
+      <h2>Kontaktieren Sie uns</h2>
+      <form id="kontakt-form">
+        <input type="text" placeholder="Ihr Name" required>
+        <input type="email" placeholder="Ihre E-Mail-Adresse" required>
+        <textarea placeholder="Ihre Nachricht" required></textarea>
+        <button type="submit">Senden</button>
+      </form>
+      <div class="kontakt-info">
+        <p><strong>Adresse:</strong> Musterstraße 1, 12345 Musterstadt</p>
+        <p><strong>Telefon:</strong> +49 123 4567890</p>
+        <p><strong>E-Mail:</strong> info@mbe-bauconsult.de</p>
+      </div>
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2024 MBE Bauconsult GmbH. Alle Rechte vorbehalten.</p>
     <div class="social-media">
