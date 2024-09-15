@@ -5,68 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MBE Bauconsult GmbH</title>
   <link rel="stylesheet" href="styles.css">
+  
   <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
   <!-- GSAP CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  
   <!-- ScrollTrigger Plugin von GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+  
   <!-- GLTFLoader für 3D-Modelle -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
   <header>
     <h1 id="main-title">KOMPETENTE UNTERSTÜTZUNG IN KOMPLEXEN PROJEKTEN</h1>
-    <div id="logo-container"></div>
+    <div id="logo-container">
+      <img src="logo.png" alt="MBE Bauconsult GmbH Logo" id="logo" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#leistungen">Unsere Leistungen</a></li>
+        <li><a href="#projekte">Projekte</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
+    <!-- Unsere Leistungen -->
     <section id="leistungen">
       <h2>UNSERE LEISTUNGEN</h2>
       <div class="leistungen-grid">
         <div class="leistung">
           <h3>Vertrags- und Claimmanagement</h3>
           <p>Optimierung Ihrer Vertragsprozesse für maximale Effizienz.</p>
-          <a href="#vertragsmanagement">mehr</a>
+          <a href="#vertragsmanagement" class="cta-button">Mehr</a>
         </div>
         <div class="leistung">
           <h3>Projektmanagement und Projektsteuerung</h3>
           <p>Professionelle Steuerung Ihrer Projekte vom Anfang bis zum Ende.</p>
-          <a href="#projektmanagement">mehr</a>
+          <a href="#projektmanagement" class="cta-button">Mehr</a>
         </div>
         <div class="leistung">
           <h3>Bahnbau</h3>
           <p>Expertise im Bereich Bahninfrastruktur und Schienenprojekte.</p>
-          <a href="#bahnbau">mehr</a>
+          <a href="#bahnbau" class="cta-button">Mehr</a>
         </div>
         <div class="leistung">
           <h3>Anlagenbau</h3>
           <p>Planung und Umsetzung komplexer Anlagenbauprojekte.</p>
-          <a href="#anlagenbau">mehr</a>
+          <a href="#anlagenbau" class="cta-button">Mehr</a>
         </div>
         <div class="leistung">
           <h3>Hochbau</h3>
           <p>Innovative Lösungen für Ihre Hochbauprojekte.</p>
-          <a href="#hochbau">mehr</a>
+          <a href="#hochbau" class="cta-button">Mehr</a>
         </div>
         <div class="leistung">
           <h3>Ingenieurbau</h3>
           <p>Fachkundige Planung und Durchführung von Ingenieurbauwerken.</p>
-          <a href="#ingenieurbau">mehr</a>
+          <a href="#ingenieurbau" class="cta-button">Mehr</a>
         </div>
         <div class="leistung">
           <h3>Kraftwerksbau</h3>
           <p>Kompetente Unterstützung im Bau von Kraftwerken.</p>
-          <a href="#kraftwerksbau">mehr</a>
+          <a href="#kraftwerksbau" class="cta-button">Mehr</a>
         </div>
         <div class="leistung">
           <h3>Consulting</h3>
           <p>Strategische Beratung für nachhaltige Bauprojekte.</p>
-          <a href="#consulting">mehr</a>
+          <a href="#consulting" class="cta-button">Mehr</a>
         </div>
       </div>
     </section>
 
+    <!-- Testimonials -->
     <section id="testimonials">
       <h2>Kundenbewertungen</h2>
       <div class="testimonial-carousel">
@@ -82,6 +98,7 @@
       </div>
     </section>
 
+    <!-- Newsletter -->
     <section id="newsletter">
       <h2>Bleiben Sie informiert</h2>
       <form id="newsletter-form">
