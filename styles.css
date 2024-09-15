@@ -52,18 +52,17 @@ header {
   overflow: hidden;
 }
 
-#logo-container {
-  width: 150px;
-  height: 150px;
-  margin: 40px auto;
+.header-content {
   position: relative;
+  z-index: 2;
 }
 
 #logo {
-  width: 100%;
+  width: 150px;
   height: auto;
   opacity: 0;
   transform: scale(0.8);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 nav {
@@ -95,6 +94,31 @@ nav ul li a::after {
 
 nav ul li a:hover::after {
   width: 100%;
+}
+
+/* Animierte Linien im Header */
+.animated-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.animated-lines .line {
+  stroke: #007BFF;
+  stroke-width: 2;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLines 3s forwards;
+}
+
+@keyframes drawLines {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 /* Leistungen */
@@ -150,10 +174,55 @@ nav ul li a:hover::after {
   background: #0056b3;
 }
 
+/* Projekte */
+#projekte {
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.projekte-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projekt {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projekt img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.projekt h3 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  color: #007BFF;
+}
+
+.projekt p {
+  font-size: 1em;
+  color: #555555;
+}
+
+.projekt:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
 /* Testimonials */
 #testimonials {
   padding: 80px 20px;
-  background: #ffffff;
+  background: #f1f1f1;
 }
 
 .testimonial-carousel {
@@ -165,7 +234,7 @@ nav ul li a:hover::after {
 }
 
 .testimonial {
-  background: #f8f9fa;
+  background: #ffffff;
   padding: 30px;
   border-radius: 10px;
   min-width: 300px;
@@ -183,12 +252,12 @@ nav ul li a:hover::after {
 .testimonial p {
   font-size: 1.1em;
   margin-bottom: 20px;
-  color: #555;
+  color: #555555;
 }
 
 .testimonial h4 {
   font-size: 1em;
-  color: #333;
+  color: #333333;
 }
 
 /* Newsletter */
@@ -239,6 +308,71 @@ nav ul li a:hover::after {
   background: #0056b3;
 }
 
+/* Kontakt */
+#kontakt {
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+#kontakt h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#kontakt-form {
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#kontakt-form input[type="text"],
+#kontakt-form input[type="email"],
+#kontakt-form textarea {
+  padding: 15px;
+  font-size: 1em;
+  border: 2px solid #cccccc;
+  border-radius: 5px;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+#kontakt-form input[type="text"]:focus,
+#kontakt-form input[type="email"]:focus,
+#kontakt-form textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+#kontakt-form button {
+  padding: 15px;
+  font-size: 1em;
+  background: #007BFF;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#kontakt-form button:hover {
+  background: #0056b3;
+}
+
+.kontakt-info {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kontakt-info p {
+  font-size: 1em;
+  color: #555555;
+  margin-bottom: 10px;
+}
+
 /* Footer */
 footer {
   background: #343a40;
@@ -262,11 +396,6 @@ footer .social-media a:hover {
   color: #007BFF;
 }
 
-/* Animation Classes */
-.animate {
-  visibility: hidden;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   h1 {
@@ -278,7 +407,8 @@ footer .social-media a:hover {
     gap: 15px;
   }
 
-  .leistungen-grid {
+  .leistungen-grid,
+  .projekte-grid {
     grid-template-columns: 1fr;
   }
 
@@ -295,4 +425,9 @@ footer .social-media a:hover {
   #newsletter-form button {
     width: 80%;
   }
+}
+
+/* Zusätzliche Animationen */
+.animate {
+  visibility: hidden;
 }
