@@ -9,12 +9,18 @@
   <!-- GSAP CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js" defer></script>
 </head>
 <body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+  
   <!-- Header -->
   <header>
     <div class="header-content">
-      <img src="logo.png" alt="MBE Bauconsult GmbH Logo" id="logo">
+      <img src="assets/logo.png" alt="MBE Bauconsult GmbH Logo" id="logo">
       <h1 id="main-title">KOMPETENTE UNTERSTÜTZUNG IN KOMPLEXEN PROJEKTEN</h1>
       <nav>
         <ul>
@@ -89,23 +95,23 @@
       <div class="projekte-grid">
         <!-- Beispielprojekt -->
         <div class="projekt">
-          <img src="projekt1.jpg" alt="Projekt 1">
+          <img src="assets/projekt1.jpg" alt="Projekt 1">
           <h3>Projektname 1</h3>
           <p>Kurze Beschreibung des Projekts.</p>
         </div>
         <!-- Weitere Projekte hinzufügen -->
         <div class="projekt">
-          <img src="projekt2.jpg" alt="Projekt 2">
+          <img src="assets/projekt2.jpg" alt="Projekt 2">
           <h3>Projektname 2</h3>
           <p>Kurze Beschreibung des Projekts.</p>
         </div>
         <div class="projekt">
-          <img src="projekt3.jpg" alt="Projekt 3">
+          <img src="assets/projekt3.jpg" alt="Projekt 3">
           <h3>Projektname 3</h3>
           <p>Kurze Beschreibung des Projekts.</p>
         </div>
         <div class="projekt">
-          <img src="projekt4.jpg" alt="Projekt 4">
+          <img src="assets/projekt4.jpg" alt="Projekt 4">
           <h3>Projektname 4</h3>
           <p>Kurze Beschreibung des Projekts.</p>
         </div>
@@ -168,7 +174,6 @@
     <div class="social-media">
       <a href="https://www.linkedin.com/company/mbe-bauconsult" target="_blank">LinkedIn</a>
       <a href="https://twitter.com/mbe_bauconsult" target="_blank">Twitter</a>
-      <!-- Weitere Social Media Links -->
       <a href="https://www.facebook.com/mbe.bauconsult" target="_blank">Facebook</a>
       <a href="https://www.instagram.com/mbe_bauconsult" target="_blank">Instagram</a>
     </div>
