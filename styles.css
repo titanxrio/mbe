@@ -112,13 +112,6 @@ nav ul li a:hover::after {
   stroke-width: 2;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: drawLines 3s forwards;
-}
-
-@keyframes drawLines {
-  to {
-    stroke-dashoffset: 0;
-  }
 }
 
 /* Unsere Leistungen */
@@ -394,6 +387,34 @@ footer .social-media a {
 
 footer .social-media a:hover {
   color: #007BFF;
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 12px solid #f3f3f3;
+  border-top: 12px solid #007BFF;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Responsive Design */
